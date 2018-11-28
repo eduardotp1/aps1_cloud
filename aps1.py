@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, Response
 from flask_restful import Api, Resource
 import json
 
@@ -47,6 +47,6 @@ def tarefa_id(id):
 
 @app.route('/healthcheck', methods=['GET'])
 def healthcheck():
-    return json.dumps({'status': 200}), 200
+    return Response(status=200)
 
 app.run(host='0.0.0.0', port=5000)
